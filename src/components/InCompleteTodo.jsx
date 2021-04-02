@@ -2,7 +2,15 @@ import React from "react";
 import "../styles.css";
 
 export const InCompleteTodo = (porps) => {
-  const { incompleteTodos, onClickComplete, onClickDelete } = porps;
+  const {
+    incompleteTodos,
+    onClickMove,
+    onClickDelete,
+    fromTodo,
+    setFromTodo,
+    toTodo,
+    setToTodo
+  } = porps;
   return (
     <>
       <div className="incomplete-area">
@@ -15,7 +23,9 @@ export const InCompleteTodo = (porps) => {
               <div key={todo} className="list-row">
                 <li>{todo}</li>
                 <button
-                  onClick={() => onClickComplete(index)}
+                  onClick={() =>
+                    onClickMove(fromTodo, setFromTodo, toTodo, setToTodo, index)
+                  }
                   className="button"
                 >
                   完了

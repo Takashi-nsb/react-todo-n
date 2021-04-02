@@ -2,7 +2,14 @@ import React from "react";
 import "../styles.css";
 
 export const CompleteTodo = (props) => {
-  const { completeTodos, onClickBack } = props;
+  const {
+    completeTodos,
+    onClickMove,
+    fromTodo,
+    setFromTodo,
+    toTodo,
+    setToTodo
+  } = props;
   return (
     <>
       <div className="complete-area">
@@ -13,7 +20,13 @@ export const CompleteTodo = (props) => {
             return (
               <div key={todo} className="list-row">
                 <li>{todo}</li>
-                <button onClick={() => onClickBack(index)} className="button">
+                {/**                <button onClick={() => onClickBack(index)} className="button"> */}
+                <button
+                  onClick={() =>
+                    onClickMove(fromTodo, setFromTodo, toTodo, setToTodo, index)
+                  }
+                  className="button"
+                >
                   戻す
                 </button>
               </div>
